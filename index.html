@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="script.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
     <title>Five Nights at UNE</title>
 </head>
 <body>
-    <div class="PrincipalDiv">
-
+    <div id="PrincipalDiv" class="PrincipalDiv">
+        <div class="titleDiv">Five<br>Nights<br>at<br>UNE's</div>
+        <div id="options" class="optionsDiv">> New game<br>  Continue</div>
     </div>
+    
+    <div id="panorama"></div>
 </body>
+<script>
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "https://pannellum.org/images/alma.jpg"
+    });
+</script>
 </html>

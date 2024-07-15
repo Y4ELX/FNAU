@@ -1,11 +1,97 @@
-body{
-    margin: 0px;
+html{
     width: 100%;
     height: 100vh;
 }
 
-
-.PrincipalDiv{
+body{
+    margin: 0px;
     width: 100%;
     height: 100vh;
+
+    background-color: black;
+}
+
+#panorama {
+    width: 600px;
+    height: 400px;
+
+    transition: opacity ease 1s;
+}
+
+@font-face {
+    font-family: ocr;
+    src: url(fonts/ocr.ttf);
+}
+
+.PrincipalDiv{
+    opacity: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    transition: background-color 1s ease, background-image 1s ease;
+    
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+
+    background-image: url(assets/saidGif.gif);
+
+    transition: opacity ease 1s;
+}
+
+.PrincipalDiv::before{
+    background-image: url(assets/noise.gif);
+    background-size: contain;
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.3;
+}
+
+.titleDiv{
+    width: 35%;
+    height: 40vh;
+
+    position: absolute;
+    left: 15vh;
+    top: 6vh;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    font-family: ocr;
+    font-size: 10vh;
+
+    color: white;
+    text-shadow: #FC0 1px 0 3vh;
+
+    z-index: 2;
+}
+
+.optionsDiv{
+    white-space: pre;
+
+    width: 35%;
+    height: 40vh;
+
+    position: absolute;
+    left: 15vh;
+    top: 55vh;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    font-family: ocr;
+    font-size: 10vh;
+
+    color: white;
+    text-shadow: #FC0 1px 0 3vh;
+
+    z-index: 2;
 }
