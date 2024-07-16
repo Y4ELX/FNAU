@@ -2,6 +2,7 @@ html{
     width: 100%;
     height: 100%;
     overflow: hidden;
+    user-select: none;
 }
 
 body{
@@ -25,6 +26,23 @@ body{
     left: 0;
     height: 100%;
     width: auto;
+}
+
+.botonesLuz{
+    background-color: #ffffff0d;
+    height: 100vh;
+    width: 30vh;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+
+    display: none;
+}
+
+.botonesLuz:hover{
+    cursor: pointer;
 }
 
 @font-face {

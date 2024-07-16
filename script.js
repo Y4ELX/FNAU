@@ -36,19 +36,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const btnL1 = document.getElementById('btnL1');
+    const body = document.getElementById('body');
+
     const container = document.getElementById('panorama-container');
     const image = document.getElementById('panorama-image');
     let containerWidth = container.offsetWidth;
 
-    container.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX;
-        const percentage = mouseX / containerWidth;
-        const maxScrollLeft = image.scrollWidth - containerWidth;
-        container.scrollLeft = maxScrollLeft * percentage;
-    
-        if(container.scrollLeft <= 300){
-            console.log("Max Left")
+    let lastScrollTime = 0;
+    const fpsInterval = 1000 / 30; // 10 fps
+
+    document.addEventListener('mousemove', (e) => {
+        const currentTime = Date.now();
+        const timeSinceLastScroll = currentTime - lastScrollTime;
+
+        if (timeSinceLastScroll > fpsInterval) {
+            const mouseX = e.clientX;
+            const percentage = mouseX / containerWidth;
+            const maxScrollLeft = image.scrollWidth - containerWidth;
+            container.scrollLeft = maxScrollLeft * percentage;
+            lastScrollTime = currentTime;
+
+            if (container.scrollLeft <= 300) {
+                console.log("Max Left");
+                btnL1.style.display = "block"
+            }else{
+                btnL1.style.display = "none"
+            }
+
         }
-        
     });
+
+    btnL1.addEventListener('mousedown', (e) => {
+        body.style.backgroundColor = "white"
+    });
+    btnL1.addEventListener('mouseup', (e) => {
+        body.style.backgroundColor = "black"
+    });
+
 });
