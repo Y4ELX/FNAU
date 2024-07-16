@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             switch(optnMenu){
                 case 1:
                     document.getElementById("PrincipalDiv").style.opacity = "0"
+                    setTimeout(() => {
+                        document.getElementById("PrincipalDiv").style.display = "none"
+                    }, 1000);
                     console.log("Opt 1 Select")
                     break
                 case 2:
