@@ -10,8 +10,20 @@ body{
     width: 100%;
     height: 100vh;
 
-    background-color: black;
-}
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #000;
+        /* Fondo negro */
+        color: #fff;
+        /* Texto blanco */
+        /* Rotar ligeramente y escalar */
+        transform-origin: center center;
+        /* Origen de la transformación en el centro */
+        filter: blur(2px) brightness(70%);
+        /* Filtros para simular efecto retro */
+        overflow: hidden;
+        /* Ocultar contenido fuera del área transformada */
+        /* Agregar espacio para mantener el contenido visible */
+    }
 
 #panorama-container {
     width: 100%;
@@ -28,6 +40,15 @@ body{
     width: auto;
 }
 
+.GUI{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+
+    z-index: 100;
+}
+
 .botonesLuz{
     background-color: #ffffff0d;
     height: 100vh;
@@ -35,7 +56,6 @@ body{
     z-index: 10;
     position: absolute;
     top: 0;
-    left: 0;
     border: none;
 
     display: none;

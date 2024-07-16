@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 document.addEventListener('DOMContentLoaded', () => {
 
     const btnL1 = document.getElementById('btnL1');
+    const btnL2 = document.getElementById('btnL2');
     const body = document.getElementById('body');
 
     const container = document.getElementById('panorama-container');
@@ -61,17 +62,31 @@ document.addEventListener('DOMContentLoaded', () => {
             if (container.scrollLeft <= 300) {
                 console.log("Max Left");
                 btnL1.style.display = "block"
-            }else{
+            } else {
                 btnL1.style.display = "none"
+            }
+
+            if (container.scrollLeft >= maxScrollLeft -300) {
+                console.log("Max Right");
+                btnL2.style.display = "block"
+            } else {
+                btnL2.style.display = "none"
             }
 
         }
     });
 
     btnL1.addEventListener('mousedown', (e) => {
-        body.style.backgroundColor = "white"
+        body.style.backgroundColor = "#b2b2b2"
     });
-    btnL1.addEventListener('mouseup', (e) => {
+    document.addEventListener('mouseup', (e) => {
+        body.style.backgroundColor = "black"
+    });
+
+    btnL2.addEventListener('mousedown', (e) => {
+        body.style.backgroundColor = "#b2b2b2"
+    });
+    document.addEventListener('mouseup', (e) => {
         body.style.backgroundColor = "black"
     });
 
