@@ -1,50 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panorámica Interactiva</title>
-    <style>
-        body, html {
-            margin: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        #panorama-container {
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        #panorama-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: auto;
-        }
-    </style>
+    <title>Test Libre de nuevo</title>
 </head>
 <body>
-    <div id="panorama-container">
-        <img id="panorama-image" src="/assets/tu-imagen-panoramica.jpg" alt="Imagen Panorámica">
-    </div>
-    <script> 
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('panorama-container');
-    const image = document.getElementById('panorama-image');
-    let containerWidth = container.offsetWidth;
-
-    container.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX;
-        const percentage = mouseX / containerWidth;
-        const maxScrollLeft = image.scrollWidth - containerWidth;
-        container.scrollLeft = maxScrollLeft * percentage;
-    });
-});
-
-    </script>
+    
 </body>
 </html>

@@ -34,3 +34,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
     
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('panorama-container');
+    const image = document.getElementById('panorama-image');
+    let containerWidth = container.offsetWidth;
+
+    container.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        const percentage = mouseX / containerWidth;
+        const maxScrollLeft = image.scrollWidth - containerWidth;
+        container.scrollLeft = maxScrollLeft * percentage;
+    
+        if(container.scrollLeft <= 300){
+            console.log("Max Left")
+        }
+        
+    });
+});
