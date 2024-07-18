@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     document.getElementById("PrincipalDiv").style.opacity = "0"
                     setTimeout(() => {
                         document.getElementById("PrincipalDiv").style.display = "none"
+                        GUI.style.display = "flex"
                     }, 1000);
                     console.log("Opt 1 Select")
                     break
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btnL1 = document.getElementById('btnL1');
     const btnL2 = document.getElementById('btnL2');
+    const GUI = document.getElementById('GUI');
     const body = document.getElementById('body');
 
     const container = document.getElementById('panorama-container');
