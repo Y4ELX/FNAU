@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnL1 = document.getElementById('btnL1');
     const btnL2 = document.getElementById('btnL2');
     const GUI = document.getElementById('GUI');
+    const battery = document.getElementById('battery');
     const body = document.getElementById('body');
 
     const container = document.getElementById('panorama-container');
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let containerWidth = container.offsetWidth;
 
     let lastScrollTime = 0;
-    const fpsInterval = 1000 / 30; // 10 fps
+    const fpsInterval = 1000 / 60; // 10 fps
 
     document.addEventListener('mousemove', (e) => {
         const currentTime = Date.now();
@@ -78,11 +79,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    let tiempoInicio, tiempoFin;
+    var batteryLevel = 4
+    let tiempoQHEP = 0;
+
     btnL1.addEventListener('mousedown', (e) => {
-        body.style.backgroundColor = "#b2b2b2"
+        if(batteryLevel!=0){
+            body.style.backgroundColor = "#b2b2b2"
+            tiempoInicio = new Date().getTime();
+        }
     });
     document.addEventListener('mouseup', (e) => {
         body.style.backgroundColor = "black"
+
+        tiempoFin = new Date().getTime(); // Registra el tiempo de finalización
+        const tiempoPresionado = (tiempoFin - tiempoInicio) / 1000; // Calcula el tiempo en segundos
+        tiempoQHEP += tiempoPresionado
+        console.log(`El botón fue presionado por ${tiempoPresionado} segundos.`)
+        checkBattery();
     });
 
     btnL2.addEventListener('mousedown', (e) => {
@@ -92,4 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
         body.style.backgroundColor = "black"
     });
 
+    function checkBattery(){
+        console.log("Tiempo presionado: "+tiempoQHEP)
+
+        if(tiempoQHEP>=15){
+            battery.src = "assets/battery3.png"
+            batteryLevel = 3
+            if (tiempoQHEP >= 30) {
+                battery.src = "assets/battery2.png"
+                batteryLevel = 2
+                if (tiempoQHEP >= 45) {
+                    battery.src = "assets/battery1.png"
+                    batteryLevel = 1
+                    if (tiempoQHEP >= 60) {
+                        battery.src = "assets/battery0.png"
+                        batteryLevel = 0
+                    }
+                }
+            }
+        }
+    }
 });
