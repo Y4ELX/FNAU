@@ -26,7 +26,7 @@
     <div id="GUI" class="GUI">
         <img id="battery" src="assets/battery.png" style="width: 15vh; height: auto; top: 4vh; left: 4vh; position: absolute;" alt="">
 
-        <p class="horaP">12 AM</p>
+        <p id="horaP" class="horaP">12 AM</p>
     </div>
 
     <button id="btnL1" class="botonesLuz" style="left: 0;">
@@ -54,28 +54,17 @@
             });
         });
 
-                    const iframe = document.getElementById('iframeid');
-                        const cursor = document.getElementById('cursor');
+        const cursor = document.getElementById('cursor');
 
-                        // Detectar cuando el cursor sale del área del iframe
-                        document.addEventListener('mouseleave', function () {
-                            cursor.style.display = 'none'; // Ocultar el cursor cuando el cursor sale del área del iframe
-                        });
+        // Detectar cuando el cursor sale del área del iframe
+        document.addEventListener('mouseleave', function () {
+            cursor.style.display = 'none'; // Ocultar el cursor cuando el cursor sale del área del iframe
+        });
 
-                        // Detectar cuando el cursor entra en el área del iframe
-                        document.addEventListener('mouseenter', function () {
-                            cursor.style.display = 'block'; // Mostrar el cursor cuando el cursor entra en el área del iframe
-                        });
-
-                        // Detectar cuando el cursor sale del área del iframe
-                        iframe.addEventListener('mouseleave', function () {
-                            cursor.style.display = 'block'; // Ocultar el cursor cuando el cursor sale del área del iframe
-                        });
-
-                        // Detectar cuando el cursor entra en el área del iframe
-                        iframe.addEventListener('mouseenter', function () {
-                            cursor.style.display = 'none'; // Mostrar el cursor cuando el cursor entra en el área del iframe
-                        });
+        // Detectar cuando el cursor entra en el área del iframe
+        document.addEventListener('mouseenter', function () {
+            cursor.style.display = 'block'; // Mostrar el cursor cuando el cursor entra en el área del iframe
+        });
     </script>
 
 </html>

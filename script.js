@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", (event) => {
 
     var optnMenu = 1
+    var HoraNoches = 0
 
     document.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
@@ -24,6 +25,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         document.getElementById("PrincipalDiv").style.display = "none"
                         GUI.style.display = "flex"
                     }, 1000);
+
+                    for (let index = 0; index < 6; index++) {
+                        setTimeout(() => {
+                            HoraNoches += 1;
+                            document.getElementById("horaP").innerHTML = HoraNoches + " AM";
+                        }, 40000 * (index + 1)); // Multiplicar el tiempo de espera por el índice
+                    }
+
                     console.log("Opt 1 Select")
                     break
                 case 2:
